@@ -51,12 +51,31 @@ function start() {
                     for (var i = 0; i < results.length; i++) {
                         if (results[i].id === answer.item) {
                             chosenItem = results[i];
-                        } 
+                        }
                     }
 
-                    if (answer.quantity < chosenItem.stock_quantity) {
-                        console.log("hi");
-
+                    if (answer.quantity <= chosenItem.stock_quantity) {
+                        var newStock = chosenItem.stock_quantity - answer.quantity;
+                        connection.query(
+                            "UPDATE products SET ? WHERE ?",
+                            [
+                                {
+                                    stock_quantity: newStock
+                                },
+                                {
+                                    id: chosenItem.id
+                                }
+                            ],
+                            function (error) {
+                                if (error) throw err;
+                                console.log("Your purchase was successfully!");
+                                start();
+                            }
+                        );
+                    }
+                    else{
+                        console.log("Insufficient quantity!");
+                        start();
                     }
                 });
             });
