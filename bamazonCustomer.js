@@ -68,7 +68,7 @@ function start() {
                             ],
                             function (error) {
                                 if (error) throw err;
-                                console.log("Your purchase was successfully!");
+                                console.log("Your purchase was successfully! \nYou owe $" + (answer.quantity * chosenItem.price) + ".");
                                 start();
                             }
                         );
