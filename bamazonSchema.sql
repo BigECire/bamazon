@@ -9,8 +9,19 @@ CREATE TABLE products(
   department_name VARCHAR(45) NOT NULL,
   price INT NOT NULL,
   stock_quantity INT NOT NULL,
+  product_sales INT default 0,
   PRIMARY KEY (id)
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("item", "walmart", 2.50, 100), ("item2", "walmart", 22.50, 400), ("item3", "walmart", 25.50, 10), ("item4", "walmart", 2.40, 100), ("item5", "walmart", 2.00, 1000);
+VALUES ("laptop", "electronics", 1245, 100), ("t-shirt", "clothing", 22.50, 400), ("TV", "electronics", 600, 140), ("tie", "clothing", 23.40, 100), ("hammer", "tools", 12.95, 1000), ("potato(5 lb.)", "groceries", 4.19, 1500), ("potato peeler", "kitchen", 1.99, 200), ("impact wrench", "tools", 480, 180), ("dozen eggs", "groceries", 1.99, 1000), ("stand mixer", "kitchen", 379, 100);
+
+CREATE TABLE departments(
+  department_id INT NOT NULL AUTO_INCREMENT,
+  department_name VARCHAR(45) NOT NULL,
+  over_head_costs INT NOT NULL,
+  PRIMARY KEY (department_id)
+);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("electronics", 10000), ("clothing", 2200), ("groceries", 5000), ("kitchen", 2100), ("tools", 2340);

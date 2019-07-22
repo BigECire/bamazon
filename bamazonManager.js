@@ -115,45 +115,54 @@ function start() {
                         })
                     break;
                 case "Add New Product":
-                    inquirer
-                        .prompt([
-                            {
-                                name: "item",
-                                type: "input",
-                                message: "What is the product you would like to add?"
-                            },
-                            {
-                                name: "department",
-                                type: "input",
-                                message: "What department does the product belong to?"
-                            },
-                            {
-                                name: "price",
-                                type: "number",
-                                message: "What is its price?"
-                            },
-                            {
-                                name: "stock",
-                                type: "number",
-                                message: "How much would you like to stock?"
-                            }
-                        ])
-                        .then(function (answer) {
-                            connection.query(
-                                "INSERT INTO products SET ?",
+                    var departments = []
+                    connection.query("SELECT department_name FROM departments", function (err, results) {
+                        if (err) throw err;
+                        for (var i = 0; i < results.length; i++) {
+                            departments.push( results[i].department_name);
+                        }
+
+                        inquirer
+                            .prompt([
                                 {
-                                    product_name: answer.item,
-                                    department_name: answer.department,
-                                    price: answer.price,
-                                    stock_quantity: answer.stock
+                                    name: "item",
+                                    type: "input",
+                                    message: "What is the product you would like to add?"
                                 },
-                                function (err) {
-                                    if (err) throw err;
-                                    console.log("The product was added successfully!");
-                                    start();
+                                {
+                                    name: "department",
+                                    type: "list",
+                                    message: "What department does the product belong to?",
+                                    choices: departments
+                                },
+                                {
+                                    name: "price",
+                                    type: "number",
+                                    message: "What is its price?"
+                                },
+                                {
+                                    name: "stock",
+                                    type: "number",
+                                    message: "How much would you like to stock?"
                                 }
-                            );
-                        });
+                            ])
+                            .then(function (answer) {
+                                connection.query(
+                                    "INSERT INTO products SET ?",
+                                    {
+                                        product_name: answer.item,
+                                        department_name: answer.department,
+                                        price: answer.price,
+                                        stock_quantity: answer.stock
+                                    },
+                                    function (err) {
+                                        if (err) throw err;
+                                        console.log("The product was added successfully!");
+                                        start();
+                                    }
+                                );
+                            });
+                    })
                     break;
                 case "Exit":
                     connection.end();

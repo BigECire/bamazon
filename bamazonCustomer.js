@@ -56,11 +56,13 @@ function start() {
 
                     if (answer.quantity <= chosenItem.stock_quantity) {
                         var newStock = chosenItem.stock_quantity - answer.quantity;
+                        var sales = chosenItem.product_sales + (answer.quantity * chosenItem.price)
                         connection.query(
                             "UPDATE products SET ? WHERE ?",
                             [
                                 {
-                                    stock_quantity: newStock
+                                    stock_quantity: newStock,
+                                    product_sales: sales
                                 },
                                 {
                                     id: chosenItem.id
@@ -68,7 +70,7 @@ function start() {
                             ],
                             function (error) {
                                 if (error) throw err;
-                                console.log("Your purchase was successfully! \nYou owe $" + (answer.quantity * chosenItem.price) + ".");
+                                console.log("Your purchase was successfully! \nYou owe $" + sales + ".");
                                 start();
                             }
                         );
