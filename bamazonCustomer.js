@@ -76,7 +76,7 @@ function start() {
                         );
                     }
                     else{
-                        console.log("Insufficient quantity!");
+                        console.log("Insufficient stock!");
                         start();
                     }
                 });

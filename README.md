@@ -16,7 +16,7 @@ It also allows supervisors to view all products by departments and gives them th
 To install this project, first clone it from the GiHub, then run `npm install`.  This will install all the needed node packages for the app to run.  Then run the JavaScript file by positions (customer, manager, and/or supervisor) needed.  
 
 ## Technology Used
-JavaScript, jQuery, Express.js, and Node.js
+JavaScript, jQuery, Express.js, MySQL, and Node.js
 
 Eric Sanders is the full stack developer of this project.
 

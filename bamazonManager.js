@@ -67,7 +67,7 @@ function start() {
 
                         };
                         if (numLow === 0) {
-                            console.log("No items are low.");
+                            console.log("All items are well Stocked.");
                         }
                         start();
                     });
