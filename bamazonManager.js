@@ -157,7 +157,7 @@ function start() {
                                     },
                                     function (err) {
                                         if (err) throw err;
-                                        console.log("The product was added successfully!");
+                                        console.log("The product was added and stocked successfully!");
                                         start();
                                     }
                                 );
