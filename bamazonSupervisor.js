@@ -82,7 +82,7 @@ function start() {
                             },
                             function (err) {
                                 if (err) throw err;
-                                console.log("The department was added successfully!");
+                                console.log("The department was successfully created!");
                                 start();
                             }
                         );
