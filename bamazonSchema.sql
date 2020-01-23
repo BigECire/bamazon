@@ -14,7 +14,7 @@ CREATE TABLE products(
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("laptop", "electronics", 1245, 100), ("t-shirt", "clothing", 22.50, 400), ("TV", "electronics", 600, 140), ("tie", "clothing", 23.40, 100), ("hammer", "tools", 12.95, 1000), ("potato(5 lb.)", "groceries", 4.19, 1500), ("potato peeler", "kitchen", 1.99, 200), ("impact wrench", "tools", 480, 180), ("dozen eggs", "groceries", 1.99, 1000), ("stand mixer", "kitchen", 379, 100);
+VALUES ("laptop", "electronics", 1245, 100), ("t-shirt", "clothing", 22.50, 400), ("TV", "electronics", 600, 140), ("tie", "clothing", 23.40, 100), ("hammer", "tools", 12.95, 1000), ("potato(5 lb.)", "groceries", 4.19, 1500), ("potato peeler", "kitchen", 1.99, 200), ("impact wrench", "tools", 480, 180), ("dozen eggs", "groceries", 1.99, 1000), ("stand mixer", "kitchen", 379, 100), ("cap", "clothing", 12.40, 80), ("blue jeans", "clothing", 12.40, 80);
 
 CREATE TABLE departments(
   department_id INT NOT NULL AUTO_INCREMENT,
