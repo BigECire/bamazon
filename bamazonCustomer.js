@@ -70,7 +70,7 @@ function start() {
                             ],
                             function (error) {
                                 if (error) throw err;
-                                console.log("Your purchase was successfully! \nYou owe $" + sales + ".");
+                                console.log("Your purchase was successful! \nYou owe $" + sales + ".");
                                 start();
                             }
                         );
