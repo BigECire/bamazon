@@ -127,7 +127,7 @@ function start() {
                                 {
                                     name: "item",
                                     type: "input",
-                                    message: "What is the product you would like to add?"
+                                    message: "What is the name of the product you would like to add?"
                                 },
                                 {
                                     name: "department",
