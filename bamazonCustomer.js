@@ -42,7 +42,7 @@ function start() {
             {
                 name: "quantity",
                 type: "number",
-                message: "how much of the product you would like to purchase?"
+                message: "how many you would like to purchase?"
             }])
             .then(function (answer) {
                 connection.query("SELECT * FROM products", function (err, results) {
