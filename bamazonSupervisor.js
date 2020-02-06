@@ -65,7 +65,7 @@ function start() {
                         {
                             name: "department",
                             type: "input",
-                            message: "What is the department you would like to add?"
+                            message: "What is the name of the department you would like to add?"
                         },
                         {
                             name: "over_head_costs",
